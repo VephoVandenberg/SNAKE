@@ -82,12 +82,12 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\dependencies\GLFW\include;$(SolutionDir)\dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\dependencies\glm\;$(SolutionDir)\dependencies\GLFW\include;$(SolutionDir)\dependencies\GLEW\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\dependencies\GLFW\lib;$(SolutionDir)\dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)\dependencies\GLFW\include;$(SolutionDir)\dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\dependencies\glm\;$(SolutionDir)\dependencies\GLFW\include;$(SolutionDir)\dependencies\GLEW\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\dependencies\GLFW\lib;$(SolutionDir)\dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -153,7 +153,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\renderer.cpp" />
+    <ClCompile Include="src\resource_manager.cpp" />
+    <ClCompile Include="src\shader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\renderer.h" />
+    <ClInclude Include="src\resource_manager.h" />
+    <ClInclude Include="src\shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
