@@ -49,7 +49,7 @@ Shader::Shader(const char* vPath, const char* fPath)
 	glGetShaderiv(vShader, GL_COMPILE_STATUS, &success);
 	if (!success)
 	{
-		glGetShaderiv(vShader, GL_COMPILE_STATUS, &success);
+		glGetShaderInfoLog(vShader, 512, NULL, infolog);
 		std::cout << "VERTEX:" << infolog;
 	}
 
@@ -59,7 +59,7 @@ Shader::Shader(const char* vPath, const char* fPath)
 	glGetShaderiv(fShader, GL_COMPILE_STATUS, &success);
 	if (!success)
 	{
-		glGetShaderiv(fShader, GL_COMPILE_STATUS, &success);
+		glGetShaderInfoLog(fShader, 512, NULL, infolog);
 		std::cout << "FRAGMENT:" << infolog;
 	}
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "renderer.h"
+#include "block.h"
 
 class Game
 {
@@ -12,6 +14,8 @@ public:
 	void renderObjects();
 
 private:
+	Renderer *m_renderer;
+	Block* m_block;
 	unsigned int m_width;
 	unsigned int m_height;
 };

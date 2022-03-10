@@ -11,8 +11,8 @@ public:
 	ResourceManager() = delete;
 	~ResourceManager() = delete;
 
-	void loadShader(const char* vPath, const char* fPath, const char* shaderName);
-	Shader& getShader(const char* shaderName);
+	static void loadShader(const char* vPath, const char* fPath, const char* shaderName);
+	static Shader& getShader(const char* shaderName);
 
 private:
 	static std::map<std::string, Shader> shaders;

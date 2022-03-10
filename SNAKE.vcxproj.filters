@@ -30,9 +30,14 @@
     <ClCompile Include="src\renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\block.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="shaders\block.vert" />
+    <None Include="shaders\block.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game.h">
@@ -45,6 +50,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
