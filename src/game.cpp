@@ -20,7 +20,7 @@ void Game::init()
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
 	m_renderer = new Renderer();
-	m_block = new Block(glm::vec2(m_width/2, m_height/2), glm::vec2(50.0f, 50.0f));
+	m_snake = new Snake(glm::vec2(m_width/2, m_height/2), glm::vec3(0.0f, 1.0f, 0.0f));
 
 	ResourceManager::getShader("block").use();
 	ResourceManager::getShader("block").setUniform4m("projection", projection);
@@ -28,10 +28,30 @@ void Game::init()
 
 void Game::renderObjects()
 {
-	m_block->render(glm::vec2(0.0f), *m_renderer, ResourceManager::getShader("block"));
+	m_snake->draw(*m_renderer, ResourceManager::getShader("block"));
 }
 
 void Game::updateObjects(float dt)
 {
+	m_snake->move(dt);
+}
 
+void Game::processInput()
+{
+	if (keys[GLFW_KEY_W])
+	{
+
+	}
+	else if (keys[GLFW_KEY_A])
+	{
+
+	}
+	else if (keys[GLFW_KEY_D])
+	{
+
+	}
+	else if (keys[GLFW_KEY_S])
+	{
+
+	}
 }

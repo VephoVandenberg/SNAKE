@@ -1,7 +1,6 @@
 #define GLEW_STATIC
 
 #include <GL/glew.h>
-#include <GLFW/glfw3.h>
 
 #include <iostream>
 
@@ -9,6 +8,8 @@
 
 const int width = 800;
 const int height = 800;
+
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 Game game(width, height);
 
@@ -30,11 +31,19 @@ int main(int argc, char** argv)
 
 	game.init();
 
+	float previousFrame = 0.0f;
+	float dt = 0.0f;
+
 	while (!glfwWindowShouldClose(window))
 	{
-		glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
+		float currentFrame = glfwGetTime();
+		dt = currentFrame - previousFrame;
+		previousFrame = currentFrame;
+
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		game.updateObjects(dt);
 		game.renderObjects();
 
 		glfwSwapBuffers(window);
@@ -42,4 +51,19 @@ int main(int argc, char** argv)
 
 	}
 	return 0;
+}
+
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+	if (key >= 0 && key <= 1024)
+	{
+		if (action == GLFW_PRESS)
+		{
+			game.keys[key] = true;
+		}
+		else if (action == GLFW_RELEASE)
+		{
+			game.keys[key] = false;
+		}
+	}
 }
