@@ -28,6 +28,7 @@ int main(int argc, char** argv)
 		std::cout << "GLEW init error!" << std::endl;
 	}
 	
+	glfwSetKeyCallback(window, keyCallback);
 
 	game.init();
 
@@ -44,6 +45,7 @@ int main(int argc, char** argv)
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		game.updateObjects(dt);
+		game.processInput();
 		game.renderObjects();
 
 		glfwSwapBuffers(window);
@@ -61,9 +63,6 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 		{
 			game.keys[key] = true;
 		}
-		else if (action == GLFW_RELEASE)
-		{
-			game.keys[key] = false;
-		}
+
 	}
 }

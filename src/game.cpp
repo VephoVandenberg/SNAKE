@@ -40,18 +40,23 @@ void Game::processInput()
 {
 	if (keys[GLFW_KEY_W])
 	{
-
+		m_snake->changeDir(State::UP);
 	}
 	else if (keys[GLFW_KEY_A])
 	{
-
+		m_snake->changeDir(State::LEFT);
 	}
 	else if (keys[GLFW_KEY_D])
 	{
-
+		m_snake->changeDir(State::RIGHT);
 	}
 	else if (keys[GLFW_KEY_S])
 	{
-
+		m_snake->changeDir(State::DOWN);
 	}
+
+	keys[GLFW_KEY_W] = false;
+	keys[GLFW_KEY_A] = false;
+	keys[GLFW_KEY_D] = false;
+	keys[GLFW_KEY_S] = false;
 }
