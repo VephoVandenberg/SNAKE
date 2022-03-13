@@ -44,8 +44,8 @@ int main(int argc, char** argv)
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		game.updateObjects(dt);
 		game.processInput();
+		game.updateObjects(dt);
 		game.renderObjects();
 
 		glfwSwapBuffers(window);

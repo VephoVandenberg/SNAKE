@@ -1,7 +1,7 @@
 #include "snake.h"
 
 Snake::Snake(glm::vec2 pos, glm::vec3 color) :
-	m_pos(pos), m_color(color), m_speed(30.0f)
+	m_pos(pos), m_color(color)
 {
 	for (int i = 0; i < m_numberOfSegments; i++)
 	{		
@@ -92,5 +92,12 @@ void Snake::draw(Renderer& renderer, Shader& shader)
 
 void Snake::changeDir(State dir)
 {
-	m_turns.push_back({ (int)m_segments.size(), dir, m_segments.begin()->m_pos });
+	bool cantTurnX = (m_segments.begin()->m_state == State::LEFT  && (dir == State::LEFT || dir == State::RIGHT)) ||
+					 (m_segments.begin()->m_state == State::RIGHT && (dir == State::LEFT || dir == State::RIGHT));
+	bool cantTurnY = (m_segments.begin()->m_state == State::UP    && (dir == State::UP || dir == State::DOWN)) ||
+					 (m_segments.begin()->m_state == State::DOWN  && (dir == State::UP || dir == State::DOWN));
+	if (!cantTurnX && !cantTurnY)
+	{
+		m_turns.push_back({ (int)m_segments.size(), dir, m_segments.begin()->m_pos });
+	}
 }

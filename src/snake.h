@@ -35,7 +35,7 @@ private:
 	glm::vec2 m_pos;
 	glm::vec3 m_color;
 	
-	float m_speed;
+	const float m_speed = 100.0f;
 
 	const int m_numberOfSegments = 5;
 	const glm::vec2 m_segSize = glm::vec2(20.0f, 20.0f);
