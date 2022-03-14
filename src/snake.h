@@ -20,7 +20,7 @@ class Snake
 public:
 
 public:
-	Snake(glm::vec2 pos, glm::vec3 color);
+	Snake(float boundaryX, float  boundarY, glm::vec2 pos, glm::vec3 color);
 	~Snake();
 
 	void growTail();
@@ -34,9 +34,11 @@ private:
 
 	glm::vec2 m_pos;
 	glm::vec3 m_color;
-	
+
+	const float m_boundaryX;
+	const float m_boundaryY;
 	const float m_speed = 100.0f;
 
-	const int m_numberOfSegments = 5;
+	const int m_numberOfSegments = 8;
 	const glm::vec2 m_segSize = glm::vec2(20.0f, 20.0f);
 };

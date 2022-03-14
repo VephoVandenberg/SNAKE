@@ -20,7 +20,7 @@ void Game::init()
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
 	m_renderer = new Renderer();
-	m_snake = new Snake(glm::vec2(m_width/2, m_height/2), glm::vec3(0.0f, 1.0f, 0.0f));
+	m_snake = new Snake(m_width, m_height, glm::vec2(m_width/2, m_height/2), glm::vec3(0.0f, 1.0f, 0.0f));
 
 	ResourceManager::getShader("block").use();
 	ResourceManager::getShader("block").setUniform4m("projection", projection);

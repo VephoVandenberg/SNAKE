@@ -1,7 +1,7 @@
 #include "snake.h"
 
-Snake::Snake(glm::vec2 pos, glm::vec3 color) :
-	m_pos(pos), m_color(color)
+Snake::Snake(float boundaryX, float boundaryY, glm::vec2 pos, glm::vec3 color) :
+	m_boundaryX(boundaryX), m_boundaryY(boundaryY), m_pos(pos), m_color(color)
 {
 	for (int i = 0; i < m_numberOfSegments; i++)
 	{		
@@ -31,21 +31,37 @@ void Snake::move(float dt)
 			case State::UP:
 			{
 				m_segments[i].m_pos.y -= delatPos;
+				if (m_segments[i].m_pos.y + m_segSize.y < 0.0f)
+				{
+					m_segments[i].m_pos.y = m_boundaryY;
+				}
 			}break;
 
 			case State::DOWN:
 			{
 				m_segments[i].m_pos.y += delatPos;
+				if (m_segments[i].m_pos.y > m_boundaryY)
+				{
+					m_segments[i].m_pos.y = 0.0f - m_segSize.y;
+				}
 			}break;
 
 			case State::LEFT:
 			{
 				m_segments[i].m_pos.x -= delatPos;
+				if (m_segments[i].m_pos.x + m_segSize.x < 0.0f)
+				{
+					m_segments[i].m_pos.x = m_boundaryX;
+				}
 			}break;
 
 			case State::RIGHT:
 			{
 				m_segments[i].m_pos.x += delatPos;
+				if (m_segments[i].m_pos.x > m_boundaryX)
+				{
+					m_segments[i].m_pos.x = 0.0f - m_segSize.x;
+				}
 			}break;
 		}
 
