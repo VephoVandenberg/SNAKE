@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\food.cpp" />
     <ClCompile Include="src\snake.cpp" />
     <ClCompile Include="src\block.cpp" />
     <ClCompile Include="src\game.cpp" />
@@ -167,6 +168,7 @@
     <None Include="shaders\block.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\food.h" />
     <ClInclude Include="src\snake.h" />
     <ClInclude Include="src\block.h" />
     <ClInclude Include="src\game.h" />

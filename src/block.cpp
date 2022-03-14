@@ -11,7 +11,7 @@ Block::~Block()
 
 }
 
-void Block::render(Renderer& renderer, Shader& shader)
+void Block::draw(Renderer& renderer, Shader& shader)
 {
 	renderer.draw(shader, m_size, m_pos, m_color);
 }

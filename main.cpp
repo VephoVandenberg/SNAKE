@@ -48,6 +48,11 @@ int main(int argc, char** argv)
 		game.updateObjects(dt);
 		game.renderObjects();
 
+		if (game.gameShouldOver())
+		{
+			glfwSetWindowShouldClose(window, true);
+		}
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 

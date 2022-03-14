@@ -8,6 +8,11 @@ Renderer::Renderer()
 	initRenderData();
 }
 
+Renderer::~Renderer()
+{
+
+}
+
 void Renderer::draw(Shader& shader, glm::vec2 size, glm::vec2 pos, glm::vec3 color)
 {
 	shader.use();

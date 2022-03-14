@@ -27,6 +27,8 @@ public:
 	void move(float dt);
 	void draw(Renderer& renderer, Shader& shader);
 	void changeDir(State dir);
+	bool checkHit(Block& block);
+	bool checkSelfBite();
 
 private:
 	std::vector<Block> m_segments;
